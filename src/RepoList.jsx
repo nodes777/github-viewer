@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-// import { Container, Row } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import Repo from "./Repo";
 import Navigation from "./Navigation";
+
+import "./css/repolist.css";
 
 class RepoList extends Component {
 	constructor(props) {
@@ -43,7 +45,14 @@ class RepoList extends Component {
 						history={this.props.history}
 						heading={`${this.props.repos.name}'s Projects`}
 					/>
-					{this.renderList()}
+					<Container>
+						<h2 className="mx-auto col-md-5 projectHeading">
+							Projects
+						</h2>
+						<div className="mx-auto col-md-5 repoList">
+							{this.renderList()}
+						</div>
+					</Container>
 				</div>
 			);
 		}

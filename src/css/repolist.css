@@ -1,0 +1,25 @@
+.repoList {
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.repoList :hover {
+	color: white;
+	background-color: #00d585;
+	text-decoration: none;
+}
+
+.repoList :hover a {
+	color: white;
+}
+
+.repoList :focus {
+	color: white;
+	background-color: #00d585;
+	text-decoration: none;
+}
+
+.projectHeading {
+	text-align: left;
+	color: #484848;
+}
