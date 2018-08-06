@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ReactMarkdown from "react-markdown";
 
+import Navigation from "./Navigation";
+
 class RepoDetail extends Component {
 	constructor(props) {
 		super(props);
@@ -31,7 +33,15 @@ class RepoDetail extends Component {
 	}
 
 	render() {
-		return <ReactMarkdown source={this.state.readme} />;
+		return (
+			<div>
+				<Navigation
+					history={this.props.history}
+					heading={this.props.location.detail.name}
+				/>
+				<ReactMarkdown source={this.state.readme} />
+			</div>
+		);
 	}
 }
 

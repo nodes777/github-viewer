@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
+// import { Container, Row } from "reactstrap";
 import Repo from "./Repo";
+import Navigation from "./Navigation";
 
 class RepoList extends Component {
 	constructor(props) {
@@ -36,7 +37,15 @@ class RepoList extends Component {
 			this.getUser(this.props.match.params.username);
 			return <div> Loading </div>;
 		} else {
-			return this.renderList();
+			return (
+				<div>
+					<Navigation
+						history={this.props.history}
+						heading={`${this.props.repos.name}'s Projects`}
+					/>
+					{this.renderList()}
+				</div>
+			);
 		}
 	}
 }

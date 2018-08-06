@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 
 //to={`/${this.props.repoName.owner.login}/${this.props.repoName.name}`}

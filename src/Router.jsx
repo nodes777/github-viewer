@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
+// import { Container, Row } from "reactstrap";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Navigation from "./Navigation";
-import RepoList from "./RepoList";
-import Repo from "./Repo";
-import RepoDetail from "./RepoDetail";
+// import Navigation from "./Navigation";
+// import RepoList from "./RepoList";
+// import Repo from "./Repo";
+// import RepoDetail from "./RepoDetail";
 import Search from "./Search";
 import UserView from "./UserView";
 
@@ -35,7 +35,6 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<Switch>
-					// Search
 					<Route
 						path="/"
 						render={props => (
@@ -43,7 +42,6 @@ class App extends Component {
 						)}
 						exact
 					/>
-					// Userview
 					<Route
 						path="/:username"
 						render={props => (

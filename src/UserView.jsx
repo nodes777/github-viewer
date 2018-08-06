@@ -11,33 +11,12 @@ import Search from "./Search";
 class UserView extends Component {
 	constructor(props) {
 		super(props);
-		this.handler = this.handler.bind(this);
 		console.log(props);
-	}
-
-	// Passing this to children so they can affect state
-	handler(username, data) {
-		this.setState({
-			user: {
-				name: username,
-				repos: data
-			}
-		});
-		console.log(this.state);
 	}
 
 	render() {
 		return (
 			<div>
-				<Navigation />
-				{/*Search*/}
-				<Route
-					path="/"
-					render={props => (
-						<Search {...props} handler={this.handler} />
-					)}
-					exact
-				/>
 				{/*	RepoList*/}
 				<Route
 					exact
