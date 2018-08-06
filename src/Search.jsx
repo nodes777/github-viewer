@@ -43,10 +43,6 @@ class Search extends Component {
 						Search
 					</button>
 				</Row>
-				{/*<div className="repoList">
-					{" "}
-					<RepoList repos={this.state.user.repos} />
-				</div>*/}
 			</Container>
 		);
 	}

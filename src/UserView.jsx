@@ -7,18 +7,13 @@ import RepoList from "./RepoList";
 import Repo from "./Repo";
 import RepoDetail from "./RepoDetail";
 import Search from "./Search";
-import UserView from "./UserView";
 
-class App extends Component {
+class UserView extends Component {
 	constructor(props) {
 		super(props);
 		this.handler = this.handler.bind(this);
+		console.log(props);
 	}
-
-	// Keeping state at highest level
-	state = {
-		user: { repos: [] }
-	};
 
 	// Passing this to children so they can affect state
 	handler(username, data) {
@@ -33,28 +28,37 @@ class App extends Component {
 
 	render() {
 		return (
-			<BrowserRouter>
-				<Switch>
-					// Search
-					<Route
-						path="/"
-						render={props => (
-							<Search {...props} handler={this.handler} />
-						)}
-						exact
-					/>
-					// Userview
-					<Route
-						path="/:username"
-						render={props => (
-							<UserView {...props} repos={this.state.user} />
-						)}
-					/>
-					{/*<Route component={Error} />*/}
-				</Switch>
-			</BrowserRouter>
+			<div>
+				<Navigation />
+				{/*Search*/}
+				<Route
+					path="/"
+					render={props => (
+						<Search {...props} handler={this.handler} />
+					)}
+					exact
+				/>
+				{/*	RepoList*/}
+				<Route
+					exact
+					path="/:username"
+					render={props => (
+						<RepoList
+							{...props}
+							repos={this.props.repos}
+							handler={this.handler}
+						/>
+					)}
+				/>
+				<Route
+					path="/user/:reponame"
+					render={props => (
+						<RepoDetail {...props} repodetail={this.props.repos} />
+					)}
+				/>
+			</div>
 		);
 	}
 }
 
-export default App;
+export default UserView;

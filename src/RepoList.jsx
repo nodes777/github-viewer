@@ -25,13 +25,13 @@ class RepoList extends Component {
 	}
 
 	renderList() {
-		return this.props.repos.map((repo, index) => (
+		// TODO: deconstruct this
+		return this.props.repos.repos.map((repo, index) => (
 			<Repo key={index} id={index} repoName={repo} />
 		));
 	}
 
 	render() {
-		console.log(this.props);
 		if (this.props.repos.length === 0) {
 			this.getUser(this.props.match.params.username);
 			return <div> Loading </div>;
