@@ -1,9 +1,3 @@
-# Github-Viewer
+# github-viewer
 
-## Setup
-* React
-* MD-to-html
-* Reactstrap
-* Github API
-* Prettier
-
+The recommended migration path is to explicitly set value and the onChange handler instead of using LinkedStateMixin
