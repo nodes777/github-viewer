@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row } from "reactstrap";
+
 import RepoList from "./RepoList";
 
 import "./repoList.css";
@@ -47,10 +48,10 @@ class Search extends Component {
 						Search
 					</button>
 				</Row>
-				<div className="repoList">
+				{/*<div className="repoList">
 					{" "}
 					<RepoList repos={this.state.user.repos} />
-				</div>
+				</div>*/}
 			</Container>
 		);
 	}
