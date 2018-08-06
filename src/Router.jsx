@@ -4,22 +4,54 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Search from "./Search";
 import RepoList from "./RepoList";
-
-// import Home from "./components/Home";
-// import About from "./components/About";
-// import Contact from "./components/Contact";
-// import Error from "./components/Error";
-// import Navigation from "./components/Navigation";
+import Repo from "./Repo";
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.handler = this.handler.bind(this);
+	}
+	state = {
+		user: { repos: [] }
+	};
+
+	handler(username, data) {
+		this.setState({
+			user: {
+				name: username,
+				repos: data
+			}
+		});
+		console.log(this.state);
+	}
+
 	render() {
 		return (
 			<BrowserRouter>
 				<div>
 					{/*<Navigation />*/}
 					<Switch>
-						<Route path="/" component={Search} exact />
-						<Route path="/repolist" component={RepoList} />
+						<Route
+							path="/"
+							render={props => (
+								<Search {...props} handler={this.handler} />
+							)}
+							exact
+						/>
+						<Route
+							path="/:username"
+							render={props => (
+								<RepoList
+									{...props}
+									repos={this.state.user.repos}
+									handler={this.handler}
+								/>
+							)}
+						/>
+						<Route
+							path="/:username/:repo"
+							render={props => <Repo {...props} />}
+						/>
 						{/*<Route path="/contact" component={Contact} />
 						<Route component={Error} />*/}
 					</Switch>

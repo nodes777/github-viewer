@@ -11,24 +11,19 @@ class Search extends Component {
 		this.getUser = this.getUser.bind(this);
 	}
 
-	state = {
-		user: { repos: [] }
-	};
+	getUser(username) {
+		username = this.refs.username.value;
 
-	getUser() {
-		const username = this.refs.username.value;
-		console.log(username);
 		fetch(`http://api.github.com/users/${username}/repos`)
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
-				this.setState({
-					user: {
-						name: username,
-						repos: data
-					}
-				});
+				this.props.handler(username, data);
+				this.props.history.push(`/${username}`);
 			});
+		// .catch(data => {
+		// 	console.log(data);
+		// });
 	}
 
 	render() {
@@ -43,7 +38,7 @@ class Search extends Component {
 							Github Username
 						</label>
 					</p>
-					<input type="text" ref="username" />
+					<input type="text" ref="username" value="nodes777" />
 					<button className="btn" onClick={this.getUser}>
 						Search
 					</button>
