@@ -17,7 +17,6 @@ class UserView extends Component {
 	render() {
 		return (
 			<div>
-				{/*	RepoList*/}
 				<Route
 					exact
 					path="/:username"
@@ -30,7 +29,7 @@ class UserView extends Component {
 					)}
 				/>
 				<Route
-					path="/user/:reponame"
+					path="/:username/:reponame"
 					render={props => (
 						<RepoDetail {...props} repodetail={this.props.repos} />
 					)}

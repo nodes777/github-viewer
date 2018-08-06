@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Container, Row } from "reactstrap";
 
+import Navigation from "./Navigation";
 import RepoList from "./RepoList";
 
-import "./repoList.css";
+import "./css/search.css";
 
 class Search extends Component {
 	constructor(props) {
@@ -28,22 +29,36 @@ class Search extends Component {
 
 	render() {
 		return (
-			<Container>
-				<Row>
-					<p>
-						<label
-							className="text-center"
-							htmlFor="searchGithubUserName"
-						>
-							Github Username
-						</label>
-					</p>
-					<input type="text" ref="username" value="nodes777" />
-					<button className="btn" onClick={this.getUser}>
-						Search
-					</button>
-				</Row>
-			</Container>
+			<div>
+				<Navigation heading="Github Viewer Project" />
+				<Container>
+					<Row>
+						<div className="mx-auto flexTextInput">
+							<input
+								type="text"
+								className="form-control"
+								ref="username"
+								value="nodes777"
+								aria-label="Enter a Github username"
+								placeholder="Enter a Github username"
+							/>
+							<div className="input-group-append">
+								<button
+									className="btn btn-sm"
+									onClick={this.getUser}
+								>
+									<img
+										width="50%"
+										height="50%"
+										src="./icons/CheckmarkButton.svg"
+										alt="Search"
+									/>
+								</button>
+							</div>
+						</div>
+					</Row>
+				</Container>
+			</div>
 		);
 	}
 }
