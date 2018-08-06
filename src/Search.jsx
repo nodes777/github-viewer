@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Container, Row } from "reactstrap";
 
 import Navigation from "./Navigation";
-import RepoList from "./RepoList";
 
 import "./css/search.css";
 
@@ -10,6 +9,13 @@ class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.getUser = this.getUser.bind(this);
+		this.handleKeypress = this.handleKeypress.bind(this);
+	}
+
+	handleKeypress(e) {
+		if (e.key === "Enter") {
+			this.getUser();
+		}
 	}
 
 	getUser(username) {
@@ -21,16 +27,16 @@ class Search extends Component {
 				console.log(data);
 				this.props.handler(username, data);
 				this.props.history.push(`/${username}`);
+			})
+			.catch(data => {
+				console.log(data);
 			});
-		// .catch(data => {
-		// 	console.log(data);
-		// });
 	}
 
 	render() {
 		return (
 			<div>
-				<Navigation heading="Github Viewer Project" />
+				<Navigation heading="Github Demo Project" />
 				<Container>
 					<Row>
 						<div className="mx-auto flexTextInput">
@@ -38,9 +44,9 @@ class Search extends Component {
 								type="text"
 								className="form-control"
 								ref="username"
-								value="nodes777"
 								aria-label="Enter a Github username"
 								placeholder="Enter a Github username"
+								onKeyPress={this.handleKeypress}
 							/>
 							<div className="input-group-append">
 								<button

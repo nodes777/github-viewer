@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
+import { Container } from "reactstrap";
 import Repo from "./Repo";
 import Navigation from "./Navigation";
 
@@ -9,22 +9,29 @@ class RepoList extends Component {
 	constructor(props) {
 		super(props);
 		this.getUser = this.getUser.bind(this);
+		console.log(props);
+	}
+	componentDidMount() {
+		this.getUser();
 	}
 
 	getUser(username) {
-		if (username == null) {
-			username = this.refs.username.value;
+		// Check if undefined, for refresh
+		if (username === undefined) {
+			console.log(this.props.location);
+			username = this.props.location.pathname.substr(1);
+
+			fetch(`http://api.github.com/users/${username}/repos`)
+				.then(res => res.json())
+				.then(data => {
+					console.log(data);
+					this.props.handler(username, data);
+					this.props.history.push(`/${username}`);
+				})
+				.catch(data => {
+					console.log(data);
+				});
 		}
-		fetch(`http://api.github.com/users/${username}/repos`)
-			.then(res => res.json())
-			.then(data => {
-				console.log(data);
-				this.props.handler(username, data);
-				this.props.history.push(`/${username}`);
-			});
-		// .catch(data => {
-		// 	console.log(data);
-		// });
 	}
 
 	renderList() {

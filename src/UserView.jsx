@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
-import Navigation from "./Navigation";
 import RepoList from "./RepoList";
-import Repo from "./Repo";
 import RepoDetail from "./RepoDetail";
-import Search from "./Search";
 
 class UserView extends Component {
 	constructor(props) {
@@ -24,7 +20,7 @@ class UserView extends Component {
 						<RepoList
 							{...props}
 							repos={this.props.repos}
-							handler={this.handler}
+							handler={this.props.handler}
 						/>
 					)}
 				/>

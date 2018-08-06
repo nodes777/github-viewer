@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import "./css/navbar.css";
 
@@ -7,7 +6,6 @@ class Navigation extends Component {
 	constructor(props) {
 		super(props);
 		this.goBack = this.goBack.bind(this);
-		console.log(this.props);
 	}
 
 	goBack() {

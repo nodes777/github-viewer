@@ -15,8 +15,8 @@ class RepoDetail extends Component {
 
 	componentDidMount() {
 		this.getMarkDown(
-			this.props.location.detail.owner.login,
-			this.props.location.detail.name
+			this.props.match.params.username,
+			this.props.match.params.reponame
 		);
 	}
 
@@ -26,10 +26,14 @@ class RepoDetail extends Component {
 			.then(data => {
 				let readmeFile = window.atob(data.content);
 				this.setState({ readme: readmeFile });
+			})
+			.catch(data => {
+				console.log(data);
+				this.setState({
+					readme:
+						"This repo does not have a properly formatted README.md file"
+				});
 			});
-		// .catch(data => {
-		// 	console.log(data);
-		// });
 	}
 
 	render() {
@@ -37,7 +41,7 @@ class RepoDetail extends Component {
 			<div>
 				<Navigation
 					history={this.props.history}
-					heading={this.props.location.detail.name}
+					heading={this.props.match.params.reponame}
 				/>
 				<ReactMarkdown source={this.state.readme} />
 			</div>
