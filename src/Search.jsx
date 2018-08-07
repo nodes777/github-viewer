@@ -12,6 +12,10 @@ class Search extends Component {
 		this.handleKeypress = this.handleKeypress.bind(this);
 	}
 
+	state = {
+		error: false
+	};
+
 	handleKeypress(e) {
 		if (e.key === "Enter") {
 			this.getUser();
@@ -24,17 +28,28 @@ class Search extends Component {
 		fetch(`http://api.github.com/users/${username}/repos`)
 			.then(res => res.json())
 			.then(data => {
-				console.log(data);
-				this.props.handler(username, data);
-				this.props.history.push(`/${username}`);
+				// valid github user
+				if (data.length > 0) {
+					this.props.handler(username, data);
+					this.props.history.push(`/${username}`);
+				} else {
+					// invalid github profile
+					this.setState({
+						error: true
+					});
+				}
 			})
 			.catch(data => {
 				console.log(data);
-				//display error message
 			});
 	}
 
 	render() {
+		let errorMsg;
+		if (this.state.error) {
+			errorMsg = <div>Error: Invalid github profile </div>;
+		}
+
 		return (
 			<div>
 				<Navigation heading="Github Demo Project" />
@@ -62,6 +77,7 @@ class Search extends Component {
 									/>
 								</button>
 							</div>
+							{errorMsg}
 						</div>
 					</Row>
 				</Container>

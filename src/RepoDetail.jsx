@@ -8,6 +8,7 @@ class RepoDetail extends Component {
 		super(props);
 		this.getMarkDown = this.getMarkDown.bind(this);
 	}
+
 	state = {
 		readme: ""
 	};
@@ -24,9 +25,11 @@ class RepoDetail extends Component {
 		fetch(`http://api.github.com/repos/${username}/${reponame}/readme`)
 			.then(res => res.json())
 			.then(data => {
+				// base64 decoding
 				let readmeFile = window.atob(data.content);
 				this.setState({ readme: readmeFile });
 			})
+			// If repo doesn't have a README
 			.catch(data => {
 				console.log(data);
 				this.setState({

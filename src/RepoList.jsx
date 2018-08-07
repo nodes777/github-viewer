@@ -9,8 +9,8 @@ class RepoList extends Component {
 	constructor(props) {
 		super(props);
 		this.getUser = this.getUser.bind(this);
-		console.log(props);
 	}
+
 	componentDidMount() {
 		this.getUser();
 	}

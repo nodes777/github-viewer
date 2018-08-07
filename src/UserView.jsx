@@ -5,14 +5,10 @@ import RepoList from "./RepoList";
 import RepoDetail from "./RepoDetail";
 
 class UserView extends Component {
-	constructor(props) {
-		super(props);
-		console.log(props);
-	}
-
 	render() {
 		return (
 			<div>
+				// Route for RepoList of specific github account
 				<Route
 					exact
 					path="/:username"
@@ -24,6 +20,7 @@ class UserView extends Component {
 						/>
 					)}
 				/>
+				//Route for RepoDetail of specific repo
 				<Route
 					path="/:username/:reponame"
 					render={props => (

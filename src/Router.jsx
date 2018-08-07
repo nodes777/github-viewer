@@ -23,12 +23,12 @@ class App extends Component {
 				repos: data
 			}
 		});
-		console.log(this.state);
 	}
 
 	render() {
 		return (
 			<BrowserRouter>
+				// Switch for Search or Userview
 				<Switch>
 					<Route
 						path="/"
@@ -47,7 +47,7 @@ class App extends Component {
 							/>
 						)}
 					/>
-					{/*<Route component={Error} />*/}
+					<Route component={Error} />
 				</Switch>
 			</BrowserRouter>
 		);
