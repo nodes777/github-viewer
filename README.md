@@ -12,7 +12,7 @@ Development
 
 ## Deviations
 
-I included some error handling that wasn't explicitly defined in the design. I also included some accessibility features not defined in the spec.
+I included some error handling that wasn't explicitly defined in the design. I also included some accessibility features not defined in the spec. Responsive design was included, but not tested.
 
 NPM Packages:
 

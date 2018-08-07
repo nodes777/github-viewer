@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
-import RepoList from "./components/RepoList";
-import RepoDetail from "./components/RepoDetail";
+import ErrorComponent from "./ErrorComponent";
+import RepoList from "./RepoList";
+import RepoDetail from "./RepoDetail";
 
 class UserView extends Component {
 	render() {
 		return (
-			<div>
+			<Switch>
+				{/*404 error handler*/}
+				<Route path="/nopage" component={ErrorComponent} />
+
 				{/*Route for RepoList of specific github account*/}
 				<Route
 					exact
@@ -22,12 +26,13 @@ class UserView extends Component {
 				/>
 				{/*Route for RepoDetail of specific repo*/}
 				<Route
+					exact
 					path="/:username/:reponame"
 					render={props => (
 						<RepoDetail {...props} repodetail={this.props.repos} />
 					)}
 				/>
-			</div>
+			</Switch>
 		);
 	}
 }

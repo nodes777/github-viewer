@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import backButtonSVG from "./icons/backButton.svg";
+import backButtonSVG from "../icons/backButton.svg";
 
-import "./css/navbar.css";
+import "../css/navbar.css";
 
 class Navigation extends Component {
 	constructor(props) {

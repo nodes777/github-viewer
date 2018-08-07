@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import "./css/repo.css";
+import "../css/repo.css";
 
 class Repo extends Component {
 	render() {

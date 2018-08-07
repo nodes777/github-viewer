@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Container, Row } from "reactstrap";
 
-import Navigation from "./components/Navigation";
+import Navigation from "./Navigation";
 
-import "./css/search.css";
+import "../css/search.css";
 
 class Search extends Component {
 	constructor(props) {
@@ -72,7 +72,7 @@ class Search extends Component {
 									<img
 										width="50%"
 										height="50%"
-										src="./icons/CheckmarkButton.svg"
+										src="../icons/CheckmarkButton.svg"
 										alt="Search"
 									/>
 								</button>

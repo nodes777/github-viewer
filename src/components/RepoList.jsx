@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
 
-import Repo from "./components/Repo";
-import Navigation from "./components/Navigation";
+import Repo from "./Repo";
+import Navigation from "./Navigation";
 
-import "./css/repolist.css";
+import "../css/repolist.css";
 
 class RepoList extends Component {
 	constructor(props) {
@@ -22,8 +22,12 @@ class RepoList extends Component {
 		fetch(`http://api.github.com/users/${username}/repos`)
 			.then(res => res.json())
 			.then(data => {
-				this.props.handler(username, data);
-				this.props.history.push(`/${username}`);
+				if (data.length > 0) {
+					this.props.handler(username, data);
+					this.props.history.push(`/${username}`);
+				} else {
+					this.props.history.push(`/nopage`);
+				}
 			})
 			.catch(data => {
 				console.log(data);

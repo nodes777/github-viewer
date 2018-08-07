@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Search from "./components/Search";
-import UserView from "./components/UserView";
+import ErrorComponent from "./ErrorComponent.jsx";
+import Search from "./Search";
+import UserView from "./UserView";
 
 class App extends Component {
 	constructor(props) {
@@ -47,7 +48,7 @@ class App extends Component {
 							/>
 						)}
 					/>
-					<Route component={Error} />
+					<Route path="/nopage" component={ErrorComponent} />
 				</Switch>
 			</BrowserRouter>
 		);
