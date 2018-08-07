@@ -8,12 +8,12 @@ class RepoDetail extends Component {
 		super(props);
 		this.getMarkDown = this.getMarkDown.bind(this);
 	}
-	state() {
-		readme: {
-		}
-	}
+	state = {
+		readme: ""
+	};
 
 	componentDidMount() {
+		// Uses URL parameters to get markdown
 		this.getMarkDown(
 			this.props.match.params.username,
 			this.props.match.params.reponame

@@ -16,22 +16,17 @@ class RepoList extends Component {
 	}
 
 	getUser(username) {
-		// Check if undefined, for refresh
-		if (username === undefined) {
-			console.log(this.props.location);
-			username = this.props.location.pathname.substr(1);
+		username = this.props.match.params.username;
 
-			fetch(`http://api.github.com/users/${username}/repos`)
-				.then(res => res.json())
-				.then(data => {
-					console.log(data);
-					this.props.handler(username, data);
-					this.props.history.push(`/${username}`);
-				})
-				.catch(data => {
-					console.log(data);
-				});
-		}
+		fetch(`http://api.github.com/users/${username}/repos`)
+			.then(res => res.json())
+			.then(data => {
+				this.props.handler(username, data);
+				this.props.history.push(`/${username}`);
+			})
+			.catch(data => {
+				console.log(data);
+			});
 	}
 
 	renderList() {

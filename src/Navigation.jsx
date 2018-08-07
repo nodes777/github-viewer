@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import backButtonSVG from "./icons/backButton.svg";
+
 import "./css/navbar.css";
 
 class Navigation extends Component {
@@ -16,11 +18,7 @@ class Navigation extends Component {
 		return (
 			<div className="navbar text-center">
 				<button>
-					<img
-						src="./icons/backButton.svg"
-						alt="Back"
-						onClick={this.goBack}
-					/>
+					<img src={backButtonSVG} alt="Back" onClick={this.goBack} />
 				</button>
 				<h1>{this.props.heading}</h1>
 			</div>

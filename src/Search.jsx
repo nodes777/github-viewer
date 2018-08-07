@@ -30,6 +30,7 @@ class Search extends Component {
 			})
 			.catch(data => {
 				console.log(data);
+				//display error message
 			});
 	}
 
