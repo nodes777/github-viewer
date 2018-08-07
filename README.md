@@ -5,6 +5,9 @@ Github profile and project viewer built for LeadIQ's interview process
 ## Start
 
 Production (minified)
+If you haven't run a create-react-app server on your machine before:
+`npm install -g serve`
+then
 `serve -s build`
 
 Development
