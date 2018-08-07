@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import Repo from "./Repo";
-import Navigation from "./Navigation";
+
+import Repo from "./components/Repo";
+import Navigation from "./components/Navigation";
 
 import "./css/repolist.css";
 

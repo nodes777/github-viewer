@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactMarkdown from "react-markdown";
 
-import Navigation from "./Navigation";
+import Navigation from "./components/Navigation";
 
 class RepoDetail extends Component {
 	constructor(props) {

@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 
-import RepoList from "./RepoList";
-import RepoDetail from "./RepoDetail";
+import RepoList from "./components/RepoList";
+import RepoDetail from "./components/RepoDetail";
 
 class UserView extends Component {
 	render() {
 		return (
 			<div>
-				// Route for RepoList of specific github account
+				{/*Route for RepoList of specific github account*/}
 				<Route
 					exact
 					path="/:username"
@@ -20,7 +20,7 @@ class UserView extends Component {
 						/>
 					)}
 				/>
-				//Route for RepoDetail of specific repo
+				{/*Route for RepoDetail of specific repo*/}
 				<Route
 					path="/:username/:reponame"
 					render={props => (
