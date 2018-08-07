@@ -21,5 +21,3 @@ NPM Packages:
 -   [Reactstrap](https://reactstrap.github.io/)
 -   [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 -   [react-markdown](https://github.com/rexxars/react-markdown)
-
-*   create components folder
